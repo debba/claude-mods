@@ -30,7 +30,24 @@ The flag lives in the clone's local git config, so forks and installed copies ne
 
 ## Install
 
-At the Claude Code prompt:
+Requires `jq`, and `gh` authenticated (`gh auth login`) for gh-review and the PR number in the status line.
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/debba/claude-mods/main/install.sh | bash
+```
+
+Or from a clone:
+
+```sh
+git clone https://github.com/debba/claude-mods && cd claude-mods
+./install.sh                  # gh-review from the marketplace + the status line
+./install.sh --no-statusline  # plugins only
+./install.sh --no-plugins     # status line only
+```
+
+The script backs up `~/.claude/settings.json` and any existing `~/.claude/statusline.sh` before changing them. Restart Claude Code afterwards.
+
+To install only the mod from inside Claude Code instead:
 
 ```
 /plugin install gh-review --marketplace debba/claude-mods
@@ -56,13 +73,13 @@ Then in `~/.claude/settings.json`:
 
 ## Developing
 
-Load the mods straight from the clone, so edits hot-reload in every session. In `~/.claude/settings.json`:
+Work from a clone so edits hot-reload in every session and repo-sync commits them:
 
-```json
-"env": {
-  "CLAUDE_CODE_PLUGIN_DIRS": "~/Projects/claude-mods/plugins/gh-review:~/Projects/claude-mods/plugins/repo-sync"
-}
+```sh
+./install.sh --dev
 ```
+
+This points `CLAUDE_CODE_PLUGIN_DIRS` in `~/.claude/settings.json` at the clone's plugins, symlinks `~/.claude/statusline.sh` to `statusline/statusline.sh`, and sets `git config claude-mods.autosync true` in the clone.
 
 Check a mod with `claude plugin validate plugins/<name>` and `claude plugin test plugins/<name>`.
 
