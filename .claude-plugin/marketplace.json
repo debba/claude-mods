@@ -1,0 +1,16 @@
+{
+  "name": "debba-claude-mods",
+  "owner": { "name": "Andrea Debernardi" },
+  "plugins": [
+    {
+      "name": "gh-review",
+      "source": "./plugins/gh-review",
+      "description": "GitHub issues and PRs to check, in a pane and a bar above the prompt"
+    },
+    {
+      "name": "repo-sync",
+      "source": "./plugins/repo-sync",
+      "description": "Auto-commit and push for a clone of this repository (opt-in)"
+    }
+  ]
+}

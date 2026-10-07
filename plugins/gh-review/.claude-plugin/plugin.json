@@ -1,0 +1,7 @@
+{
+  "name": "gh-review",
+  "version": "0.2.0",
+  "description": "Pane and prompt bar with the GitHub issues and PRs to check for the repository in the working directory",
+  "author": { "name": "Andrea Debernardi" },
+  "types": "./types/index.d.ts"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "repo-sync",
+  "version": "0.1.0",
+  "description": "Commits changes to the claude-mods repository it lives in and offers a one-click push (opt-in per clone)",
+  "author": { "name": "Andrea Debernardi" },
+  "types": "./types/index.d.ts"
+}
